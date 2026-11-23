@@ -36,6 +36,7 @@ MainActivity (View)  ──eventos──▶  LoginViewModel  ──▶  AuthRepo
 
 - **Unitários** (sem emulador): botão direito em `app/src/test/java` → *Run 'Tests in ...'*
 - **Interface (Espresso) e Keystore** (com emulador ligado): botão direito em `app/src/androidTest/java` → *Run 'Tests in ...'*
+- Usar um emulador com **API 29**: na API 37 os testes do Espresso falham por incompatibilidade do Espresso 3.6.1 (`NoSuchMethodException: InputManager.getInstance`).
 - **Pelo terminal** (na pasta do projeto): `./gradlew test` e `./gradlew connectedAndroidTest` (no Windows: `gradlew.bat test`)
 
 Antes dos testes do Espresso, desliguem as animações do emulador (*Opções de programador* → escalas de animação a 0x) para evitar testes instáveis.
