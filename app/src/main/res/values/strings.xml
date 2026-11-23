@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grupo 21 Demo</string>
+    <string name="title_login">Iniciar sessão</string>
+    <string name="hint_username">Utilizador</string>
+    <string name="hint_password">Palavra-passe</string>
+    <string name="action_login">Entrar</string>
+    <string name="action_logout">Terminar sessão</string>
+    <string name="demo_hint">Demo: aluno / pdm2026</string>
+    <string name="welcome">Olá, %1$s!</string>
+    <string name="error_empty_fields">Preencha o utilizador e a palavra-passe.</string>
+    <string name="error_invalid_credentials">Utilizador ou palavra-passe incorretos.</string>
+    <string name="session_info">Sessão ativa. O token está guardado cifrado com uma chave do Android Keystore.</string>
+</resources>
