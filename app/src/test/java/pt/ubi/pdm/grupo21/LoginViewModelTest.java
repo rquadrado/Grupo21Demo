@@ -14,13 +14,8 @@ import pt.ubi.pdm.grupo21.data.FakeAuthRepository;
 import pt.ubi.pdm.grupo21.ui.LoginUiState;
 import pt.ubi.pdm.grupo21.ui.LoginViewModel;
 
-/**
- * Testes unitários: correm na JVM do computador, sem emulador, em milissegundos.
- * Executar: botão direito na pasta "test" -> Run 'Tests in pt.ubi...'
- */
 public class LoginViewModelTest {
 
-    // Faz o LiveData correr de forma síncrona durante os testes
     @Rule
     public InstantTaskExecutorRule instantTaskExecutorRule = new InstantTaskExecutorRule();
 

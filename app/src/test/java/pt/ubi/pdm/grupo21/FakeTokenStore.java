@@ -2,7 +2,6 @@ package pt.ubi.pdm.grupo21;
 
 import pt.ubi.pdm.grupo21.data.TokenStore;
 
-/** TokenStore em memória, para testes na JVM (o Android Keystore só existe no dispositivo). */
 public class FakeTokenStore implements TokenStore {
 
     private String username;

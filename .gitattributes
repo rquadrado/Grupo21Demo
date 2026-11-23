@@ -1,4 +1,3 @@
-# Garante que o gradlew funciona em Linux/macOS mesmo depois de clonado no Windows
 gradlew text eol=lf
 *.bat text eol=crlf
 *.jar binary

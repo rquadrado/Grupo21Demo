@@ -22,10 +22,6 @@ import org.junit.runner.RunWith;
 import pt.ubi.pdm.grupo21.data.KeystoreTokenStore;
 import pt.ubi.pdm.grupo21.ui.MainActivity;
 
-/**
- * Testes de interface (Espresso): correm no emulador e simulam um utilizador real.
- * Executar: botão direito na pasta "androidTest" -> Run 'Tests in pt.ubi...'
- */
 @RunWith(AndroidJUnit4.class)
 public class LoginScreenTest {
 

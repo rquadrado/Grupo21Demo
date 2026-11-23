@@ -13,11 +13,6 @@ import pt.ubi.pdm.grupo21.data.FakeAuthRepository;
 import pt.ubi.pdm.grupo21.data.KeystoreTokenStore;
 import pt.ubi.pdm.grupo21.databinding.ActivityMainBinding;
 
-/**
- * A View: é "passiva". Só faz duas coisas:
- *   1. envia os eventos do utilizador para o ViewModel;
- *   2. desenha o ecrã a partir do estado que o ViewModel publica.
- */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "Grupo21Demo";
@@ -36,18 +31,16 @@ public class MainActivity extends AppCompatActivity {
                 new KeystoreTokenStore(getApplicationContext()));
         viewModel = new ViewModelProvider(this, factory).get(LoginViewModel.class);
 
-        // Eventos: UI -> ViewModel
         binding.buttonLogin.setOnClickListener(v -> viewModel.login(
                 text(binding.editUsername),
                 text(binding.editPassword)));
         binding.buttonLogout.setOnClickListener(v -> viewModel.logout());
 
-        // Estado: ViewModel -> UI
         viewModel.getUiState().observe(this, this::render);
     }
 
     private void render(LoginUiState state) {
-        Log.d(TAG, "Novo estado: " + state.status); // visível no Logcat
+        Log.d(TAG, "Novo estado: " + state.status);
 
         boolean loggedIn = state.status == LoginUiState.Status.LOGGED_IN;
         binding.layoutLogin.setVisibility(loggedIn ? View.GONE : View.VISIBLE);
@@ -55,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (loggedIn) {
             binding.textWelcome.setText(getString(R.string.welcome, state.username));
-            binding.editPassword.setText(""); // não deixar a palavra-passe no ecrã
+            binding.editPassword.setText("");
         }
 
         if (state.status == LoginUiState.Status.ERROR) {
-            binding.textError.setText(state.errorMessageRes); // texto vem do strings.xml
+            binding.textError.setText(state.errorMessageRes);
             binding.textError.setVisibility(View.VISIBLE);
         } else {
             binding.textError.setVisibility(View.GONE);

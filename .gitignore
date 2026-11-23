@@ -9,7 +9,7 @@
 .externalNativeBuild/
 .cxx/
 
-# Nunca publicar chaves de assinatura nem segredos
+# chaves
 *.jks
 *.keystore
 keystore.properties

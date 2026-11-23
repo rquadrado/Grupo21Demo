@@ -14,14 +14,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 
-/**
- * Armazenamento seguro da sessão.
- *
- * 1. Uma chave AES-256 é gerada DENTRO do Android Keystore e nunca sai de lá
- *    (nem a própria app consegue ler os bytes da chave).
- * 2. O token é cifrado com AES/GCM usando essa chave.
- * 3. Nas SharedPreferences só fica o texto cifrado + o IV, nunca o token em claro.
- */
+// Guarda o token cifrado com AES/GCM; a chave fica no Android Keystore
 public class KeystoreTokenStore implements TokenStore {
 
     private static final String ANDROID_KEYSTORE = "AndroidKeyStore";
@@ -45,7 +38,7 @@ public class KeystoreTokenStore implements TokenStore {
         try {
             Cipher cipher = Cipher.getInstance(TRANSFORMATION);
             cipher.init(Cipher.ENCRYPT_MODE, getOrCreateKey());
-            byte[] iv = cipher.getIV(); // IV aleatório gerado pelo próprio Keystore
+            byte[] iv = cipher.getIV();
             byte[] ciphertext = cipher.doFinal(token.getBytes(StandardCharsets.UTF_8));
 
             prefs.edit()
@@ -73,7 +66,7 @@ public class KeystoreTokenStore implements TokenStore {
             cipher.init(Cipher.DECRYPT_MODE, getOrCreateKey(), new GCMParameterSpec(GCM_TAG_BITS, iv));
             return new String(cipher.doFinal(ciphertext), StandardCharsets.UTF_8);
         } catch (Exception e) {
-            // Dados corrompidos ou chave apagada: tratamos como "sem sessão"
+            // dados corrompidos ou chave apagada
             clear();
             return null;
         }

@@ -15,7 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/** Confirma que o token fica cifrado no disco e que se consegue decifrar com a chave do Keystore. */
 @RunWith(AndroidJUnit4.class)
 public class KeystoreTokenStoreTest {
 
@@ -34,14 +33,12 @@ public class KeystoreTokenStoreTest {
         String token = "token-secreto-123";
         store.save("aluno", token);
 
-        // O que está gravado no ficheiro NÃO é o token em claro
         SharedPreferences prefs =
                 context.getSharedPreferences(KeystoreTokenStore.PREFS_NAME, Context.MODE_PRIVATE);
         String guardado = prefs.getString(KeystoreTokenStore.PREF_TOKEN_CIPHERTEXT, null);
         assertNotNull(guardado);
         assertFalse(guardado.contains(token));
 
-        // Mas a app consegue recuperá-lo
         assertEquals(token, store.getToken());
     }
 

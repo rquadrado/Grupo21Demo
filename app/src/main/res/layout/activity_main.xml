@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- Ecrã de login -->
+        <!-- Login -->
         <LinearLayout
             android:id="@+id/layoutLogin"
             android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:textAppearance="?attr/textAppearanceBodySmall" />
         </LinearLayout>
 
-        <!-- Ecrã de sessão iniciada -->
+        <!-- Sessão iniciada -->
         <LinearLayout
             android:id="@+id/layoutSession"
             android:layout_width="match_parent"

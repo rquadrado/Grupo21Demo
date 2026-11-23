@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProvider;
 import pt.ubi.pdm.grupo21.data.AuthRepository;
 import pt.ubi.pdm.grupo21.data.TokenStore;
 
-/** Permite passar as dependências (Repository e TokenStore) ao construtor do ViewModel. */
 public class LoginViewModelFactory implements ViewModelProvider.Factory {
 
     private final AuthRepository authRepository;

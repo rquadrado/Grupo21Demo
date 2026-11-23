@@ -17,7 +17,6 @@ android {
 
     buildTypes {
         release {
-            // Preparação para distribuição: código reduzido e ofuscado
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -43,11 +42,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.7")
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
 
-    // Testes unitários (correm na JVM do computador)
     testImplementation("junit:junit:4.13.2")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
 
-    // Testes instrumentados (correm no emulador / telemóvel)
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test:runner:1.6.2")
     androidTestImplementation("androidx.test:rules:1.6.1")

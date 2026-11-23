@@ -2,26 +2,17 @@ package pt.ubi.pdm.grupo21.ui;
 
 import androidx.annotation.StringRes;
 
-/**
- * Estado completo do ecrã num único objeto imutável.
- * A interface desenha-se SEMPRE a partir deste estado (fluxo unidirecional de dados).
- */
 public final class LoginUiState {
 
     public enum Status { LOGGED_OUT, LOGGED_IN, ERROR }
 
-    /** Valor de errorMessageRes quando não há erro. */
     public static final int NO_ERROR = 0;
 
     public final Status status;
-    public final String username;     // preenchido quando LOGGED_IN
+    public final String username;
 
-    /**
-     * Mensagem de erro como id de recurso (R.string...), preenchido quando ERROR.
-     * O ViewModel não tem Context, por isso não pode chamar getString():
-     * guarda só o id e é a Activity que obtém o texto do strings.xml.
-     */
     @StringRes
+    // id do texto em strings.xml
     public final int errorMessageRes;
 
     private LoginUiState(Status status, String username, @StringRes int errorMessageRes) {
